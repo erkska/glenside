@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["rand","`rand`, re-exported for convenience and version-compatibility."],["rand_distr","`rand-distr`, re-exported for convenience and version-compatibility."]],"struct":[["F32","A wrapper type that allows casting f64 distributions to f32"]],"trait":[["RandomExt","Constructors for n-dimensional arrays with random elements."]]});

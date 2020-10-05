@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `ndarray_npy` crate."><meta name="keywords" content="rust, rustlang, rust-lang, ndarray_npy"><title>ndarray_npy - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../ndarray_npy/index.html'><div class='logo-container rust-logo'><img src='../rust-logo.png' alt='logo'></div></a><p class='location'>Crate ndarray_npy</p><div class='block version'><p>Version 0.6.0</p></div><div class="sidebar-elems"><a id='all-types' href='all.html'><p>See all ndarray_npy's items</p></a><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'ndarray_npy', ty: 'mod', relpath: '../'};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/ndarray_npy/lib.rs.html#1-50' title='goto source code'>[src]</a></span><span class='in-band'>Crate <a class="mod" href=''>ndarray_npy</a></span></h1><div class='docblock'><p>This crate provides methods to read/write <a href="https://github.com/bluss/ndarray"><code>ndarray</code></a>'s <code>ArrayBase</code> type
+from/to <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.lib.format.html"><code>.npy</code></a> and <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html"><code>.npz</code></a> files.</p>
+<p>See the <a href="trait.ReadNpyExt.html"><code>ReadNpyExt</code></a> and <a href="trait.WriteNpyExt.html"><code>WriteNpyExt</code></a> extension traits or the
+<a href="fn.read_npy.html"><code>read_npy</code></a> and <a href="fn.write_npy.html"><code>write_npy</code></a> convenience functions for reading/writing
+<code>.npy</code> files.</p>
+<p>See <a href="struct.NpzReader.html"><code>NpzReader</code></a> and <a href="struct.NpzWriter.html"><code>NpzWriter</code></a> for reading/writing <code>.npz</code> files.</p>
+<p>See the <a href="https://github.com/jturner314/ndarray-npy">repository</a> for information about the default features and how to
+use this crate with Cargo.</p>
+<h1 id="limitations" class="section-header"><a href="#limitations">Limitations</a></h1>
+<ul>
+<li>
+<p>Parsing of <code>.npy</code> files is currently limited to files where the <code>descr</code>
+field of the <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.lib.format.html#format-version-1-0">header dictionary</a> is a Python string literal of the form
+<code>'string'</code>, <code>&quot;string&quot;</code>, <code>'''string'''</code>, or <code>&quot;&quot;&quot;string&quot;&quot;&quot;</code>.</p>
+</li>
+<li>
+<p><code>WritableElement</code> and <code>ReadableElement</code> are currently implemented only
+for fixed-size integers, floating point numbers, and <code>bool</code>.</p>
+</li>
+</ul>
+<p>The plan is to add support for more element types (including custom
+user-defined structs) in the future.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table><tr class='module-item'><td><a class="struct" href="struct.NpzReader.html" title='ndarray_npy::NpzReader struct'>NpzReader</a></td><td class='docblock-short'><p>Reader for <code>.npz</code> files.</p>
+</td></tr><tr class='module-item'><td><a class="struct" href="struct.NpzWriter.html" title='ndarray_npy::NpzWriter struct'>NpzWriter</a></td><td class='docblock-short'><p>Writer for <code>.npz</code> files.</p>
+</td></tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table><tr class='module-item'><td><a class="enum" href="enum.ReadDataError.html" title='ndarray_npy::ReadDataError enum'>ReadDataError</a></td><td class='docblock-short'><p>An error reading array data.</p>
+</td></tr><tr class='module-item'><td><a class="enum" href="enum.ReadNpyError.html" title='ndarray_npy::ReadNpyError enum'>ReadNpyError</a></td><td class='docblock-short'><p>An error reading a <code>.npy</code> file.</p>
+</td></tr><tr class='module-item'><td><a class="enum" href="enum.ReadNpzError.html" title='ndarray_npy::ReadNpzError enum'>ReadNpzError</a></td><td class='docblock-short'><p>An error reading a <code>.npz</code> file.</p>
+</td></tr><tr class='module-item'><td><a class="enum" href="enum.WriteDataError.html" title='ndarray_npy::WriteDataError enum'>WriteDataError</a></td><td class='docblock-short'><p>An error writing array data.</p>
+</td></tr><tr class='module-item'><td><a class="enum" href="enum.WriteNpyError.html" title='ndarray_npy::WriteNpyError enum'>WriteNpyError</a></td><td class='docblock-short'><p>An error writing a <code>.npy</code> file.</p>
+</td></tr><tr class='module-item'><td><a class="enum" href="enum.WriteNpzError.html" title='ndarray_npy::WriteNpzError enum'>WriteNpzError</a></td><td class='docblock-short'><p>An error writing a <code>.npz</code> file.</p>
+</td></tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table><tr class='module-item'><td><a class="trait" href="trait.ReadNpyExt.html" title='ndarray_npy::ReadNpyExt trait'>ReadNpyExt</a></td><td class='docblock-short'><p>Extension trait for reading <code>Array</code> from <code>.npy</code> files.</p>
+</td></tr><tr class='module-item'><td><a class="trait" href="trait.ReadableElement.html" title='ndarray_npy::ReadableElement trait'>ReadableElement</a></td><td class='docblock-short'><p>An array element type that can be read from an <code>.npy</code> or <code>.npz</code> file.</p>
+</td></tr><tr class='module-item'><td><a class="trait" href="trait.WritableElement.html" title='ndarray_npy::WritableElement trait'>WritableElement</a></td><td class='docblock-short'><p>An array element type that can be written to an <code>.npy</code> or <code>.npz</code> file.</p>
+</td></tr><tr class='module-item'><td><a class="trait" href="trait.WriteNpyExt.html" title='ndarray_npy::WriteNpyExt trait'>WriteNpyExt</a></td><td class='docblock-short'><p>Extension trait for writing <code>ArrayBase</code> to <code>.npy</code> files.</p>
+</td></tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table><tr class='module-item'><td><a class="fn" href="fn.read_npy.html" title='ndarray_npy::read_npy fn'>read_npy</a></td><td class='docblock-short'><p>Read an <code>.npy</code> file located at the specified path.</p>
+</td></tr><tr class='module-item'><td><a class="fn" href="fn.write_npy.html" title='ndarray_npy::write_npy fn'>write_npy</a></td><td class='docblock-short'><p>Writes an array to an <code>.npy</code> file at the specified path.</p>
+</td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../";window.currentCrate = "ndarray_npy";</script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>

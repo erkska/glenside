@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["glenside"] = [{"text":"impl&lt;'_&gt; CostFunction&lt;Language&gt; for MonolithicCostFunction&lt;'_&gt;","synthetic":false,"types":[]},{"text":"impl CostFunction&lt;Language&gt; for SimpleCostFunction","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
